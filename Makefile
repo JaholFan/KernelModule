@@ -1,7 +1,7 @@
 KDIR  := /work/platform/rk3399-nougat/kernel
 
 # Kernel modules
-obj-m += hello.o
+obj-m += hello.o buy_fruit.o
 
 # Specify flags for the module compilation.
 #EXTRA_CFLAGS=-g -O0

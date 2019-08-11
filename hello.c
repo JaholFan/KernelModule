@@ -20,14 +20,12 @@ MODULE_PARM_DESC(apple, "A integer");
 MODULE_PARM_DESC(apple_color, "A character string");
 MODULE_PARM_DESC(fruit, "An array of string");
 
+extern int buy_fruit(char*p_fruit);
 static int __init hello_init(void)
 {
-	int i = 0;
+	int ret = 0;	
 	printk(KERN_INFO "Hello World enter\n");
-	printk(KERN_INFO "apple=%d\n",apple);
-	printk(KERN_INFO "apple_color=%s\n",apple_color);
-	for(i=0;i<len;i++)
-		printk(KERN_INFO "fruit[%d]=%s\n",i,fruit[i]);
+	ret = buy_fruit("apple");
 	return 0;
 }
 module_init(hello_init);
