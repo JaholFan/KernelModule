@@ -13,11 +13,21 @@ static int apple = 4;
 module_param(apple,int,00644); 
 static char *apple_color = "red";
 module_param(apple_color, charp, 00644);
+static char *fruit[3] = {"apple","banana","watermelon"};
+int len = sizeof(fruit)/sizeof(char*);
+module_param_array(fruit,charp,&len,S_IRUGO |  S_IWUSR); //Notice:&len
+MODULE_PARM_DESC(apple, "A integer");
+MODULE_PARM_DESC(apple_color, "A character string");
+MODULE_PARM_DESC(fruit, "An array of string");
+
 static int __init hello_init(void)
 {
+	int i = 0;
 	printk(KERN_INFO "Hello World enter\n");
 	printk(KERN_INFO "apple=%d\n",apple);
 	printk(KERN_INFO "apple_color=%s\n",apple_color);
+	for(i=0;i<len;i++)
+		printk(KERN_INFO "fruit[%d]=%s\n",i,fruit[i]);
 	return 0;
 }
 module_init(hello_init);
