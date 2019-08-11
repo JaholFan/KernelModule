@@ -10,10 +10,9 @@
 #include <linux/module.h>
 
 static int apple = 4;
-module_param(apple,int,S_IRUGO); 
+module_param(apple,int,00644); 
 static char *apple_color = "red";
-module_param(apple_color, charp, S_IRUGO);
-
+module_param(apple_color, charp, 00644);
 static int __init hello_init(void)
 {
 	printk(KERN_INFO "Hello World enter\n");
