@@ -9,9 +9,16 @@
 #include <linux/init.h>
 #include <linux/module.h>
 
+static int apple = 4;
+module_param(apple,int,S_IRUGO); 
+static char *apple_color = "red";
+module_param(apple_color, charp, S_IRUGO);
+
 static int __init hello_init(void)
 {
 	printk(KERN_INFO "Hello World enter\n");
+	printk(KERN_INFO "apple=%d\n",apple);
+	printk(KERN_INFO "apple_color=%s\n",apple_color);
 	return 0;
 }
 module_init(hello_init);
